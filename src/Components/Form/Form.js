@@ -35,8 +35,8 @@ const FormComponent = (props) => {
 
   const handleSubmit = async () => {
     // Handle form submission logic here
-    const min = 20;
-    const max = 200;
+    const min = sqft < 3000 ? 20 : 100;
+    const max =  sqft< 2000 ? 100 :300;
     const randomDecimal = (Math.random() * (max - min) + min).toFixed(2);
       props.showResultModel(true);
       props.showResult(randomDecimal);
