@@ -1,7 +1,7 @@
 import React from 'react';
 import './ResultModel.css';
 import Modal from '../UI/Modal';
-import { Button } from '@mui/material';
+import { Button, darken } from '@mui/material';
 
 const PriceCard = (props) => {
   const formatPredictedPrice = (price) => {
@@ -30,7 +30,9 @@ const PriceCard = (props) => {
         <Button
           variant="contained"
           onClick={() => props.onClick(false)}
-          sx={{ backgroundColor: props.primaryColor, color: 'white', mt: 2 }}
+          sx={{ backgroundColor: props.primaryColor, color: 'white', mt: 2 , "&:hover": {
+            backgroundColor: darken(props.primaryColor, 0.2),
+          }, }}
         >
           Close
         </Button>

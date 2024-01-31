@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import { FormGroup } from "@mui/material";
+import { FormGroup, darken } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import axios from "axios";
 
@@ -210,10 +210,14 @@ const FormComponent = (props) => {
                   <Button
                     variant="contained"
                     onClick={handleSubmit}
+                    
                     sx={{
                       backgroundColor: props.primaryColor,
                       color: "white",
                       mt: 2,
+                      "&:hover": {
+                        backgroundColor: darken(props.primaryColor, 0.2),
+                      },
                     }}
                   >
                     Submit
