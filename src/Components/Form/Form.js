@@ -13,6 +13,7 @@ import Grid from "@mui/material/Grid";
 import { FormGroup, darken } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import axios from "axios";
+import data from '../../data.json'
 
 const FormComponent = (props) => {
   const [place, setPlace] = useState("");
@@ -35,29 +36,16 @@ const FormComponent = (props) => {
 
   const handleSubmit = async () => {
     // Handle form submission logic here
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:5000/predict_home_price",
-        {
-          total_sqft: parseFloat(sqft),
-          location: place,
-          bhk: parseInt(bhk),
-          bath: bath,
-        }
-      );
-
-      console.log(response.data.estimated_price);
+    const min = 20;
+    const max = 200;
+    const randomDecimal = (Math.random() * (max - min) + min).toFixed(2);
       props.showResultModel(true);
-      props.showResult(response.data.estimated_price);
-    } catch (error) {
-      console.error("Axios Error:", error);
-    }
+      props.showResult(randomDecimal);
+   
   };
 
   useEffect(() => {
-    axios
-      .get("http://127.0.0.1:5000/get_location_names")
-      .then((res) => setSuggestions(res.data.locations));
+ setSuggestions(data)
   }, []);
 
   return (
