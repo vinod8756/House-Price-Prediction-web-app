@@ -12,7 +12,6 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { FormGroup, darken } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
-import axios from "axios";
 import data from '../../data.json'
 
 const FormComponent = (props) => {
